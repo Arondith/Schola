@@ -1,8 +1,8 @@
 # Schola
 
-Schola is a responsive front-end study platform prototype built with vanilla HTML, CSS, and JavaScript.
+## About
 
-This project was developed as a **school project in collaboration with one project partner**. It demonstrates an academic dashboard with tools for planning, study resources, practice activities, study groups, and profile management.
+Schola is a responsive front-end study platform prototype built with vanilla HTML, CSS, and JavaScript. It was developed as a **school project in collaboration with one project partner** and demonstrates an academic dashboard with tools for planning, study resources, practice activities, study groups, and profile management.
 
 ## Project structure
 
