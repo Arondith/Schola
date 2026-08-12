@@ -2,7 +2,31 @@
 
 ## About
 
-Schola is a responsive front-end study platform prototype built with vanilla HTML, CSS, and JavaScript. It was developed as a **school project in collaboration with one project partner** and demonstrates an academic dashboard with tools for planning, study resources, practice activities, study groups, and profile management.
+**Schola** is a responsive front-end study-platform prototype built with vanilla HTML, CSS, and JavaScript. It was developed as a **school project in collaboration with one project partner** and was designed to bring several common student productivity tools into one academic dashboard.
+
+The interface includes a **login screen, dashboard, study planner, task completion tools, focus timer, resource library, flashcard practice, study groups, profile management, notes interactions, and quick-add actions**. The project focuses on responsive layout, front-end interaction, navigation, and user-interface design rather than a production backend.
+
+Backend-oriented features such as authentication, persistent cloud storage, AI chat, and file sharing are represented in the interface as prototype concepts, while the current repository primarily demonstrates the complete front-end experience.
+
+## Core features
+
+- Login interface and academic dashboard
+- Study planner and task completion
+- Focus / productivity timer
+- Study-resource library
+- Flashcard practice interface
+- Study-group interface
+- Notes and profile interactions
+- Quick-add actions
+- Responsive desktop and mobile layout
+- Interactive navigation with JavaScript
+- Prototype interfaces for future backend/AI features
+
+## Project context
+
+- **Type:** School project
+- **Collaboration:** Developed with one project partner
+- **Focus:** Front-end web development and academic productivity UX
 
 ## Project structure
 
@@ -17,16 +41,13 @@ Key files:
 - `app.js` — navigation and interactive behavior
 - `assets/` — images and supporting assets
 
-## Features
+## Technology
 
-- Login and dashboard interface
-- Study planner and task completion
-- Focus timer
-- Resource library
-- Flashcard practice
-- Study groups
-- Profile and notes interactions
-- Quick-add actions
+- HTML
+- CSS
+- JavaScript
+- Responsive web design
+- Front-end UI/UX prototyping
 
 ## Running locally
 
