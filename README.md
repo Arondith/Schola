@@ -52,10 +52,10 @@ Key files:
 ## Running locally
 
 1. Clone or download the repository.
-2. Open `Schola_Website/schola-website/index.html` in a browser.
-3. For a smoother development workflow, open the folder in VS Code and use Live Server.
+2. Navigate to `Schola_Website/schola-website/`.
+3. Open `index.html` directly in a browser, or serve the folder with a local development server such as VS Code Live Server.
 
-No build step is required.
+No package installation or build step is required because the prototype uses plain HTML, CSS, and JavaScript.
 
 ## Status
 
