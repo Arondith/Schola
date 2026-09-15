@@ -1,62 +1,33 @@
 # Schola
 
-## About
+Schola is a study-productivity platform that started as a front-end school prototype and is now being extended with a production-oriented Laravel architecture.
 
-**Schola** is a responsive front-end study-platform prototype built with vanilla HTML, CSS, and JavaScript. It was developed as a **school project in collaboration with one project partner** and was designed to bring several common student productivity tools into one academic dashboard.
+## Versions
 
-The interface includes a **login screen, dashboard, study planner, task completion tools, focus timer, resource library, flashcard practice, study groups, profile management, notes interactions, and quick-add actions**. The project focuses on responsive layout, front-end interaction, navigation, and user-interface design rather than a production backend.
+### v1 — Front-end prototype
 
-Backend-oriented features such as authentication, persistent cloud storage, AI chat, and file sharing are represented in the interface as prototype concepts, while the current repository primarily demonstrates the complete front-end experience.
+The original responsive prototype remains in `Schola_Website/schola-website/` and demonstrates the interface for planning, focus sessions, resources, flashcards, study groups, notes, and profile interactions using HTML, CSS, and JavaScript.
 
-## Core features
+### v2 — Laravel / Livewire / AWS portfolio build
 
-- Login interface and academic dashboard
-- Study planner and task completion
-- Focus / productivity timer
-- Study-resource library
-- Flashcard practice interface
-- Study-group interface
-- Notes and profile interactions
-- Quick-add actions
-- Responsive desktop and mobile layout
-- Interactive navigation with JavaScript
-- Prototype interfaces for future backend/AI features
+`schola-v2/` is a full-stack portfolio implementation designed to demonstrate modern PHP and production-scale architectural patterns:
+
+- Laravel 13
+- Livewire 4
+- Alpine.js interactions (bundled through Livewire)
+- MySQL persistence
+- Redis-ready cache configuration
+- SQS-ready queued jobs
+- S3-ready object storage
+- Docker local environment
+- PHPUnit / Livewire feature tests
+- GitHub Actions CI
+- Terraform reference infrastructure for AWS ECS, ALB, Auto Scaling, RDS, ElastiCache, S3, SQS and CloudWatch
+
+> **Scope note:** v2 demonstrates scale-ready / production-oriented patterns and infrastructure-as-code. It is a portfolio implementation, not a claim that Schola has already handled production-scale traffic.
+
+See [`schola-v2/README.md`](schola-v2/README.md) for setup, architecture, and portfolio notes.
 
 ## Project context
 
-- **Type:** School project
-- **Collaboration:** Developed with one project partner
-- **Focus:** Front-end web development and academic productivity UX
-
-## Project structure
-
-The main website is located in:
-
-`Schola_Website/schola-website/`
-
-Key files:
-
-- `index.html` — application entry point
-- `styles.css` — responsive styling
-- `app.js` — navigation and interactive behavior
-- `assets/` — images and supporting assets
-
-## Technology
-
-- HTML
-- CSS
-- JavaScript
-- Responsive web design
-- Front-end UI/UX prototyping
-
-## Running locally
-
-1. Clone or download the repository.
-2. Navigate to `Schola_Website/schola-website/`.
-3. Open `index.html` directly in a browser, or serve the folder with a local development server such as VS Code Live Server.
-
-No package installation or build step is required because the prototype uses plain HTML, CSS, and JavaScript.
-
-## Status
-
-This repository currently contains a front-end prototype. Backend services such as authentication, persistent storage, AI chat, and cloud file sharing are represented in the interface but are not yet connected to production services.
+The original Schola interface was developed as a school project with one project partner. The v2 Laravel implementation is an individual portfolio extension created to deepen full-stack, testing, cloud, and deployment skills.
