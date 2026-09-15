@@ -1,0 +1,48 @@
+name: Schola v2 CI
+
+on:
+  push:
+    paths:
+      - 'schola-v2/**'
+      - '.github/workflows/schola-v2-ci.yml'
+  pull_request:
+    paths:
+      - 'schola-v2/**'
+      - '.github/workflows/schola-v2-ci.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: schola-v2
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, pdo_sqlite
+          coverage: none
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Install and build assets
+        run: npm install && npm run build
+
+      - name: Prepare application storage
+        run: mkdir -p storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
+
+      - name: Run test suite
+        run: php artisan test
+
+      - name: Check formatting
+        run: ./vendor/bin/pint --test
