@@ -1,7 +1,8 @@
 FROM composer:2 AS vendor
 WORKDIR /app
-COPY composer.json ./
-RUN composer install --no-dev --no-interaction --no-scripts --prefer-dist
+COPY . .
+RUN mkdir -p bootstrap/cache storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs \
+    && composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 FROM node:22-alpine AS assets
 WORKDIR /app
@@ -11,12 +12,18 @@ COPY resources ./resources
 RUN npm run build
 
 FROM php:8.3-fpm-alpine
-RUN docker-php-ext-install pdo_mysql pcntl opcache
+RUN apk add --no-cache nginx supervisor \
+    && docker-php-ext-install pdo_mysql pcntl opcache
+
 WORKDIR /var/www/html
 COPY . .
 COPY --from=vendor /app/vendor ./vendor
 COPY --from=assets /app/public/build ./public/build
-RUN mkdir -p storage/framework/{cache,sessions,views} storage/logs bootstrap/cache \
+COPY docker/nginx.conf /etc/nginx/http.d/default.conf
+COPY docker/supervisord.conf /etc/supervisord.conf
+
+RUN mkdir -p storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs bootstrap/cache /run/nginx \
     && chown -R www-data:www-data storage bootstrap/cache
-USER www-data
-CMD ["php-fpm"]
+
+EXPOSE 8000
+CMD ["supervisord", "-c", "/etc/supervisord.conf"]
