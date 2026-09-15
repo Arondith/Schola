@@ -9,9 +9,13 @@ use Livewire\Component;
 class StudyDashboard extends Component
 {
     public string $title = '';
+
     public string $subject = '';
+
     public string $priority = 'medium';
+
     public ?string $dueAt = null;
+
     public string $filter = 'all';
 
     protected function rules(): array

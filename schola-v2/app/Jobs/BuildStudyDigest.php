@@ -11,9 +11,7 @@ class BuildStudyDigest implements ShouldQueue
 {
     use Queueable;
 
-    public function __construct(public int $taskId)
-    {
-    }
+    public function __construct(public int $taskId) {}
 
     public function handle(): void
     {
