@@ -7,8 +7,6 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "latest",
-    "axios": "latest",
     "laravel-vite-plugin": "latest",
     "vite": "latest"
   }
