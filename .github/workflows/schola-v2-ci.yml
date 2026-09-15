@@ -32,14 +32,14 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Prepare application storage
+        run: mkdir -p storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
+
       - name: Install PHP dependencies
         run: composer install --no-interaction --prefer-dist
 
       - name: Install and build assets
         run: npm install && npm run build
-
-      - name: Prepare application storage
-        run: mkdir -p storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
 
       - name: Run test suite
         run: php artisan test
