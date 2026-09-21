@@ -2,6 +2,51 @@
 
 Schola v2 upgrades the original front-end study-platform prototype into a full-stack portfolio project focused on modern Laravel development and production-oriented cloud architecture.
 
+## Easiest local setup — recommended
+
+### Windows: one-click launcher
+
+From the repository root, double-click:
+
+`start-schola.bat`
+
+Requirements:
+
+- Docker Desktop installed
+- Docker Desktop running
+
+The launcher will:
+
+- build the Schola application image;
+- start the Laravel app, MySQL, and Redis;
+- wait for the database and Redis health checks;
+- run Laravel database migrations automatically;
+- expose the app on port 8000; and
+- open **http://localhost:8000** in your browser.
+
+To stop the project without deleting your database data, double-click:
+
+`stop-schola.bat`
+
+### Docker command line
+
+If you prefer the terminal:
+
+```bash
+cd schola-v2
+docker compose up --build -d
+```
+
+Then open **http://localhost:8000**.
+
+To stop it:
+
+```bash
+docker compose down
+```
+
+The MySQL data is stored in a named Docker volume, so normal stops do not erase your study tasks.
+
 ## What this project demonstrates
 
 ### Laravel 13
@@ -46,9 +91,9 @@ See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 > This project demonstrates production-scale **patterns**. It does not falsely claim the application has already served production-scale traffic.
 
-## Local setup
+## Manual PHP setup
 
-### Standard PHP setup
+Use this only if you specifically want to run Laravel outside Docker.
 
 Requirements: PHP 8.3+, Composer, Node.js 22+, and MySQL or SQLite.
 
@@ -62,19 +107,23 @@ php artisan migrate
 php artisan serve
 ```
 
+If you use a locally installed MySQL server instead of Docker, change `DB_HOST` in `.env` from `mysql` to `127.0.0.1` and use your own local database credentials.
+
 ### Run tests
 
 ```bash
 php artisan test
 ```
 
-### Docker services
+## Docker behavior
 
-```bash
-docker compose up --build
-```
+The Compose setup is optimized for an easy first launch:
 
-The Docker Compose file includes the application, MySQL, and Redis services as a development reference environment.
+- the application is available at `localhost:8000`;
+- MySQL and Redis stay internal to Docker, avoiding common host port conflicts;
+- the app waits for healthy dependencies before starting;
+- migrations run automatically;
+- dependencies and built assets remain inside the application image instead of being hidden by a host bind mount.
 
 ## AWS Terraform
 
