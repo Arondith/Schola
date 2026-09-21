@@ -2,6 +2,18 @@
 
 Schola is a study-productivity platform that started as a front-end school prototype and is now being extended with a production-oriented Laravel architecture.
 
+## Fastest way to open Schola on Windows
+
+The Laravel version now includes a one-click Docker launcher.
+
+1. Install and open Docker Desktop.
+2. Clone or download this repository.
+3. Double-click `start-schola.bat` in the repository root.
+4. Schola opens at **http://localhost:8000**.
+5. When finished, double-click `stop-schola.bat`.
+
+The launcher builds the application, starts MySQL and Redis, runs Laravel migrations automatically, and opens the app in your browser. You do not need to run Composer, npm, MySQL, Redis, or Artisan manually for this Docker workflow.
+
 ## Versions
 
 ### v1 — Front-end prototype
