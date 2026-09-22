@@ -11,7 +11,7 @@ RUN npm install
 COPY resources ./resources
 RUN npm run build
 
-FROM php:8.3-fpm-alpine
+FROM php:8.4-fpm-alpine
 RUN apk add --no-cache nginx supervisor \
     && docker-php-ext-install pdo_mysql pcntl opcache
 
