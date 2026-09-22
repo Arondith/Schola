@@ -95,7 +95,7 @@ See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 Use this only if you specifically want to run Laravel outside Docker.
 
-Requirements: PHP 8.3+, Composer, Node.js 22+, and MySQL or SQLite.
+Requirements: PHP 8.4.1+, Composer, Node.js 22+, and MySQL or SQLite.
 
 ```bash
 cp .env.example .env
@@ -120,6 +120,7 @@ php artisan test
 The Compose setup is optimized for an easy first launch:
 
 - the application is available at `localhost:8000`;
+- the application container uses PHP 8.4 to match the Composer dependency platform;
 - MySQL and Redis stay internal to Docker, avoiding common host port conflicts;
 - the app waits for healthy dependencies before starting;
 - migrations run automatically;
